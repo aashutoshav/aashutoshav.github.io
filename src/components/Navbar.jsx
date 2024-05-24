@@ -5,8 +5,17 @@ import cv from '../assets/cv.png';
 import { Link } from 'react-scroll';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+const Tooltip = ({ text }) => {
+  return (
+    <div className="absolute bg-black text-white py-1 px-2 rounded-md text-sm">
+      {text}
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -43,9 +52,13 @@ const Navbar = () => {
             A
           </Link>
         </div>
-        <div className="flex items-center">
-          <a href="https://drive.google.com/file/d/14ttHASOqPl0FLSXCOF3tsY_m7PxlAjVM/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="mr-4">
+        <div className="flex items-center relative">
+          <a href="https://drive.google.com/file/d/14ttHASOqPl0FLSXCOF3tsY_m7PxlAjVM/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="mr-4"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+          >
             <img src={cv} alt="Resume" className="h-8 w-auto transition-transform duration-300 hover:scale-110"/>
+            {showTooltip && <Tooltip text="Resume" />}
           </a>
           <a href="https://www.linkedin.com/in/aashutosh-av" target="_blank" rel="noopener noreferrer" className="mr-4">
             <img src={linkedin} alt="LinkedIn" className="h-8 w-auto transition-transform duration-300 hover:scale-110"/>
@@ -55,10 +68,10 @@ const Navbar = () => {
           </a>
         </div>
         <div className="lg:hidden">
-            <button onClick={toggleMenu} className="focus:outline-none">
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
+          <button onClick={toggleMenu} className="focus:outline-none">
+            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+        </div>
       </div>
       {isOpen && (
         <div className="lg:hidden flex flex-col items-center bg-neutral-900 text-white py-4 space-y-4">
