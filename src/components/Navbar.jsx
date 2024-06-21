@@ -53,7 +53,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center relative">
-          <a href="https://drive.google.com/file/d/14ttHASOqPl0FLSXCOF3tsY_m7PxlAjVM/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="mr-4"
+          <a href="https://drive.google.com/file/d/1pxKkN_7iiQ7xC-naisTT_ezb4m_WLg6y/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="mr-4"
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
           >
