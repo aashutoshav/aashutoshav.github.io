@@ -1,17 +1,35 @@
 import deepfake from "../assets/deepfake.png";
 import eeg from "../assets/EEG.png";
+import clip from "../assets/clip.png";
 import dcgan from '../assets/dcgan.png';
 import alveoli from '../assets/alveoli.png';
 import nlp from '../assets/nlp.png';
+import iclr from '../assets/iclr.png';
 
 export const BGCONTENT = `
 `;
 
 export const ABOUT_TEXT = `
-    Hello, I am A V Aashutosh, a Senior Undergraduate Student at the Birla Institute of Technology & Sciences, Hyderabad, India. I major in Computer Science, and am pursuing a Minor in Data Science, a field I've grown to love over the years of my bachelors study. I have delved into the research side of the field, and have been a part of various projects that have honed my skils in the fields of Computer Vision, Deep Learning and Machine Learning. My Reserach Interests motivated me to take up roles as a Research Assistant over the last few years, and contribute to projects that develop from very interesting ideas to full fledged research papers. I am currently looking for opportunities to further my skills in the field of AI and Data Science, and am open to roles in the field of Machine Learning, Deep Learning and Computer Vision.
+    Hello, I am A V Aashutosh, a Senior Undergraduate Student at the Birla Institute of Technology & Sciences, Hyderabad, India. I major in Computer Science, and am pursuing a Minor in Data Science, a field I've grown to love over the years of my bachelors study. I have delved into the research side of the field, and have been a part of various projects that have honed my skils in the fields of Computer Vision, Deep Learning and Machine Learning. My Reserach Interests motivated me to take up roles as a Research Assistant over the last few years, and contribute to ambitious projects that have the something unique to offer.  
 `;
 
 export const PROJECTS = [
+    {
+        title: "ActionGenome - ScenarioCLIP",
+        image: clip,
+        description: "A relation-based dataset and a clip-based model for holistic object-relation understanding.",
+        ideas: ["Scene Understanding", "Transfer Learning", "VLMs", "Contrastive Learning"],
+        deets: ["Undergraduate Thesis"],
+        code: [""]
+    },
+    {
+        title: "Multimodal Video Generation",
+        image: iclr,
+        description: "A multimodal deepfake generation model, that generates deepfakes using a combination of audio, text and source image inputs.",
+        ideas: ["Multimodal Learning", "Generative AI", "Diffusion", "Cross-modal attention"],
+        deets: ["Paper under review at ICLR, 2025"],
+        code: ["https://github.com/Playing-for-you/Playing-for-you"]
+    },
     {
         title: "Deepfake Video Generation",
         image: deepfake,
@@ -59,7 +77,7 @@ export const PROJECTS = [
 
 export const CONTACT = {
     phoneNo: " +919100161016",
-    email: " f20210056@hyderabad.bits-pilani.ac.in",
+    email: " avaashutosh04@gmail.com",
     location: " Hyderabad, India"
 };
 
