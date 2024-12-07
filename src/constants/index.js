@@ -81,4 +81,4 @@ export const CONTACT = {
     location: " Hyderabad, India"
 };
 
-export const FOOTER = `I am always keen on exploring new opportunities. I love to collaborate on interesting projects in the domains of anything related to AI, and am open to roles in the same. Please contact me at: `
+export const FOOTER = `I will be joining Microsoft Research India as a Winter Intern during the upcoming Spring Semester. I love collaborating on anything related to AI, and am open to discussions on the same. Please contact me at: `
