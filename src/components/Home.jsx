@@ -1,5 +1,5 @@
 import React from 'react';
-import closeup from '../assets/closeup.png';
+import closeup from '../assets/pic.png';
 import { motion } from "framer-motion";
 
 const Home = () => {
