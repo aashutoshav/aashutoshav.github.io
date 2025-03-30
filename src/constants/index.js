@@ -10,8 +10,8 @@ export const BGCONTENT = `
 `;
 
 export const ABOUT_TEXT = `
-    Hello, I am A V Aashutosh, a Senior Undergraduate Student at the Birla Institute of Technology & Sciences, Hyderabad, India. I major in Computer Science, and am pursuing a Minor in Data Science, a field I've grown to love over the years of my bachelors study. I have delved into the research side of the field, and have been a part of various projects that have honed my skils in the fields of Computer Vision, Deep Learning and Machine Learning. My Reserach Interests motivated me to take up roles as a Research Assistant over the last few years, and contribute to ambitious projects that have the something unique to offer.  
-`;
+    My research interests lie primarily in the area of Deep Learning and Computer Vision, but I'm equally passionate about exploring ares like Natural Language Processing(NLP) and Reinforcement Learning. Through my research endeavours, I aim to build on top of the foundation I have laid during my undergraduate years at BITS Pilani, Hyderabad. 
+`
 
 export const PROJECTS = [
     {
@@ -27,7 +27,7 @@ export const PROJECTS = [
         image: iclr,
         description: "A multimodal deepfake generation model, that generates deepfakes using a combination of audio, text and source image inputs.",
         ideas: ["Multimodal Learning", "Generative AI", "Diffusion", "Cross-modal attention"],
-        deets: ["Paper under review at ICLR, 2025"],
+        deets: ["Project developed served as a working application "],
         code: ["https://github.com/Playing-for-you/Playing-for-you"]
     },
     {
@@ -81,4 +81,4 @@ export const CONTACT = {
     location: " Hyderabad, India"
 };
 
-export const FOOTER = `I am presently interning at Microsoft Research India, where I'm working on the intersection of ML and Database Systems. I love collaborating on anything related to AI, and am open to discussions on the same. Please contact me at: `
+export const FOOTER = `I love collaborating on anything related to AI, and am open to discussions on the same. If you are interested in my work, or would like to chat about technical interests, please contact me at: `

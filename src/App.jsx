@@ -17,11 +17,11 @@ const App = () => {
         <div id='about'>
           <About />
         </div>
-        <div id='technologies'>
-          <Technologies />
-        </div>
         <div id='projects'>
           <Projects />
+        </div>
+        <div id='technologies'>
+          <Technologies />
         </div>
         <div id='contact'>
           <Contact />
