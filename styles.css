@@ -169,7 +169,8 @@ body {
 
 .profile-title {
     color: var(--icon-color);
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+    /* Reduced from 35px */
     font-size: 16px;
     font-weight: 500;
 }
@@ -177,7 +178,8 @@ body {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
+    /* Reduced from 18px */
 }
 
 .contact-item {
@@ -186,7 +188,8 @@ body {
     gap: 15px;
     color: var(--text-color);
     transition: all 0.3s ease;
-    padding: 8px 0;
+    padding: 6px 0;
+    /* Reduced padding */
     border-radius: 6px;
 }
 
@@ -241,6 +244,127 @@ body {
     color: var(--accent-color);
 }
 
+/* News Section - Updated for sidebar */
+.news-section {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color);
+}
+
+.news-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    position: relative;
+}
+
+.news-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    border-radius: 1px;
+}
+
+.news-container {
+    margin-bottom: 20px;
+}
+
+.news-item {
+    margin-bottom: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item:hover {
+    background: var(--hover-color);
+    padding-left: 8px;
+    border-radius: 6px;
+}
+
+.news-date {
+    font-size: 13px;
+    color: var(--icon-color);
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.news-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.news-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.news-content a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* News Pagination - Updated styling to match page design */
+.news-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    min-width: 32px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.pagination-btn:hover {
+    background: var(--hover-color);
+    color: var(--accent-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.pagination-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pagination-btn:disabled:hover {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transform: none;
+    box-shadow: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-content {
@@ -272,6 +396,25 @@ body {
         width: 45px;
         height: 45px;
     }
+
+    .news-section {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    .news-title {
+        font-size: 18px;
+    }
+
+    .news-pagination {
+        gap: 6px;
+    }
+
+    .pagination-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+        min-width: 28px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -298,5 +441,16 @@ body {
 
     .nav {
         gap: 15px;
+    }
+
+    .news-pagination {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .pagination-btn {
+        padding: 4px 6px;
+        font-size: 11px;
+        min-width: 24px;
     }
 }
