@@ -2,45 +2,56 @@
 const newsData = [
     {
         date: "Sept 2025",
-        content: "Our work <em>Narrating For You</em> is accepted at <em>WACV 2026</em>."
+        content: "Our work <em>Narrating For You</em> is accepted at <em>WACV 2026</em>"
     },
     {
         date: "Aug 2025",
-        content: "I started my MSCS program at Georgia Tech."
+        content: "Started my MS in Computer Science at Georgia Tech"
     },
     {
         date: "Jun 2025",
-        content: "Graduated from BITS Pilani with Distinction."
+        content: "Graduated from BITS Pilani with Distinction"
     },
     {
         date: "Jul 2025",
-        content: "I concluded my research internship at Microsoft Research."
+        content: "Concluded my research internship at Microsoft Research"
     },
     {
-        date: "Jun 2024",
-        content: "Presented research on 'Generative AI for Database Systems' at SIGMOD 2024."
+        date: "Dec 2024",
+        content: "Concluded my work for my Undergraduate Thesis on learning representations for Vision-Language Models"
     },
     {
         date: "May 2024",
-        content: "Started research internship at Microsoft Research India, focusing on Applied ML for database systems."
+        content: "Our work <em>Latent Flow Diffusion for Deepfake Video Generation</em> was accepted at <em>CVPRW 2024</em>."
     },
     {
-        date: "Apr 2024",
-        content: "Completed final year project on 'Multimodal LLMs for Database Query Optimization'."
+        date: "Jun 2023",
+        content: "Started my Undergraduate Research Assistantship at the Machine Intelligence Group"
     },
     {
-        date: "Mar 2024",
-        content: "Won first place in the BITS Pilani TechFest AI/ML competition."
+        date: "Aug 2021",
+        content: "Started my Bachelors in Computer Science at BITS Pilani"
     },
-    {
-        date: "Feb 2024",
-        content: "Published paper on 'Computer Vision for Database Indexing' at WACV 2024."
-    }
 ];
 
 // Pagination settings
 const ITEMS_PER_PAGE = 3;
 let currentPage = 1;
+
+// Function to parse date string and return a sortable date
+function parseDate(dateString) {
+    const [month, year] = dateString.split(' ');
+    const monthMap = {
+        'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+        'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+    };
+    return new Date(parseInt(year), monthMap[month]);
+}
+
+// Sort news data by date (latest first)
+const sortedNewsData = [...newsData].sort((a, b) => {
+    return parseDate(b.date) - parseDate(a.date);
+});
 
 // Theme toggle functionality
 document.addEventListener('DOMContentLoaded', function () {
@@ -105,16 +116,20 @@ function renderNews() {
     const newsContainer = document.getElementById('news-container');
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    const currentNews = newsData.slice(startIndex, endIndex);
+    const currentNews = sortedNewsData.slice(startIndex, endIndex);
 
     newsContainer.innerHTML = '';
 
     currentNews.forEach(item => {
         const newsItem = document.createElement('div');
         newsItem.className = 'news-item';
+
+        // Convert <italic> tags to proper HTML <em> tags
+        const processedContent = item.content.replace(/<italic>/g, '<em>').replace(/<\/italic>/g, '</em>');
+
         newsItem.innerHTML = `
             <div class="news-date">${item.date}</div>
-            <div class="news-content">${item.content}</div>
+            <div class="news-content">${processedContent}</div>
         `;
         newsContainer.appendChild(newsItem);
     });
@@ -122,7 +137,7 @@ function renderNews() {
 
 function renderPagination() {
     const paginationContainer = document.getElementById('news-pagination');
-    const totalPages = Math.ceil(newsData.length / ITEMS_PER_PAGE);
+    const totalPages = Math.ceil(sortedNewsData.length / ITEMS_PER_PAGE);
 
     if (totalPages <= 1) {
         paginationContainer.innerHTML = '';
@@ -176,6 +191,9 @@ function renderPagination() {
 // Function to add new news items (you can call this to add news dynamically)
 function addNewsItem(date, content) {
     newsData.unshift({ date, content }); // Add to beginning of array
+    // Re-sort the data after adding new item
+    sortedNewsData.length = 0; // Clear the array
+    sortedNewsData.push(...newsData.sort((a, b) => parseDate(b.date) - parseDate(a.date)));
     currentPage = 1; // Reset to first page
     renderNews();
     renderPagination();
