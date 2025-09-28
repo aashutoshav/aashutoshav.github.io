@@ -1,20 +1,20 @@
 // News data - you can easily add/remove items here
 const newsData = [
     {
-        date: "Dec 2024",
-        content: "Started my MSCS program at Georgia Tech, specializing in Machine Learning."
+        date: "Sept 2025",
+        content: "Our work <em>Narrating For You</em> is accepted at <em>WACV 2026</em>."
     },
     {
-        date: "Nov 2024",
-        content: "Completed my research internship at Microsoft Research India, working on Applied ML for NoSQL Database Systems."
+        date: "Aug 2025",
+        content: "I started my MSCS program at Georgia Tech."
     },
     {
-        date: "Aug 2024",
-        content: "Graduated with distinction from BITS Pilani with a Bachelor's Degree in Computer Science."
+        date: "Jun 2025",
+        content: "Graduated from BITS Pilani with Distinction."
     },
     {
-        date: "Jul 2024",
-        content: "Published paper on 'Multimodal Learning for Database Optimization' at ICML 2024."
+        date: "Jul 2025",
+        content: "I concluded my research internship at Microsoft Research."
     },
     {
         date: "Jun 2024",
