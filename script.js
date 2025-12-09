@@ -5,11 +5,11 @@ const newsData = [
         content: "I will be joining <em>Dr. James Hays' Lab</em> as a Graduate Student Researcher"
     },
     {
-        date: "Dec 2025",
+        date: "Nov 2025",
         content: "I will be joining the C21U Lab at Georgia Tech as a Graduate Research Assistant under Dr. <em>Jeonghyun (Jonna) Lee</em>"
     },
     {
-        date: "Sept 2025",
+        date: "Sep 2025",
         content: "Our work <em>Narrating For You</em> is accepted at <em>WACV 2026</em>"
     },
     {
@@ -62,24 +62,17 @@ const sortedNewsData = [...newsData].sort((a, b) => {
 });
 
 // Theme toggle functionality
+// Theme toggle functionality
 document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
-    // const body = document.body;
 
+    // We target the <html> tag now
     const htmlElement = document.documentElement;
 
     const currentTheme = localStorage.getItem('theme') || 'dark';
 
-    // Apply the saved theme
-    // if (currentTheme === 'dark') {
-    //     body.setAttribute('data-theme', 'dark');
-    //     themeIcon.className = 'fas fa-sun';
-    // } else {
-    //     body.setAttribute('data-theme', 'light');
-    //     themeIcon.className = 'fas fa-moon';
-    // }
-
+    // Apply the saved theme on load
     if (currentTheme === 'dark') {
         htmlElement.setAttribute('data-theme', 'dark');
         themeIcon.className = 'fas fa-sun';
@@ -90,28 +83,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Theme toggle event listener
     themeToggle.addEventListener('click', function () {
-        // const currentTheme = body.getAttribute('data-theme');
         const currentTheme = htmlElement.getAttribute('data-theme');
 
-        // if (currentTheme === 'dark') {
-        //     // Switch to light mode
-        //     body.setAttribute('data-theme', 'light');
-        //     themeIcon.className = 'fas fa-moon';
-        //     localStorage.setItem('theme', 'light');
-        // } else {
-        //     // Switch to dark mode
-        //     body.setAttribute('data-theme', 'dark');
-        //     themeIcon.className = 'fas fa-sun';
-        //     localStorage.setItem('theme', 'dark');
-        // }
         if (currentTheme === 'dark') {
             // Switch to light mode
-            htmlElement.setAttribute('data-theme', 'light');
+            htmlElement.setAttribute('data-theme', 'light'); // FIXED: Changed body -> htmlElement
             themeIcon.className = 'fas fa-moon';
             localStorage.setItem('theme', 'light');
         } else {
             // Switch to dark mode
-            htmlElement.setAttribute('data-theme', 'dark'); 
+            htmlElement.setAttribute('data-theme', 'dark'); // FIXED: Changed body -> htmlElement
             themeIcon.className = 'fas fa-sun';
             localStorage.setItem('theme', 'dark');
         }
