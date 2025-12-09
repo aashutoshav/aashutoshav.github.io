@@ -2,7 +2,11 @@
 const newsData = [
     {
         date: "Dec 2025",
-        content: "I will be joining the C21U Lab at Georgia Tech as a Graduate Research Assistant under Prof. <em>Jeonghyun (Jonna) Lee</em>"
+        content: "I will be joining <em>Dr. James Hays' Lab</em> as a Graduate Student Researcher"
+    },
+    {
+        date: "Dec 2025",
+        content: "I will be joining the C21U Lab at Georgia Tech as a Graduate Research Assistant under Dr. <em>Jeonghyun (Jonna) Lee</em>"
     },
     {
         date: "Sept 2025",
@@ -61,32 +65,53 @@ const sortedNewsData = [...newsData].sort((a, b) => {
 document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
-    const body = document.body;
+    // const body = document.body;
 
-    // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const htmlElement = document.documentElement;
+
+    const currentTheme = localStorage.getItem('theme') || 'dark';
 
     // Apply the saved theme
+    // if (currentTheme === 'dark') {
+    //     body.setAttribute('data-theme', 'dark');
+    //     themeIcon.className = 'fas fa-sun';
+    // } else {
+    //     body.setAttribute('data-theme', 'light');
+    //     themeIcon.className = 'fas fa-moon';
+    // }
+
     if (currentTheme === 'dark') {
-        body.setAttribute('data-theme', 'dark');
+        htmlElement.setAttribute('data-theme', 'dark');
         themeIcon.className = 'fas fa-sun';
     } else {
-        body.setAttribute('data-theme', 'light');
+        htmlElement.setAttribute('data-theme', 'light');
         themeIcon.className = 'fas fa-moon';
     }
 
     // Theme toggle event listener
     themeToggle.addEventListener('click', function () {
-        const currentTheme = body.getAttribute('data-theme');
+        // const currentTheme = body.getAttribute('data-theme');
+        const currentTheme = htmlElement.getAttribute('data-theme');
 
+        // if (currentTheme === 'dark') {
+        //     // Switch to light mode
+        //     body.setAttribute('data-theme', 'light');
+        //     themeIcon.className = 'fas fa-moon';
+        //     localStorage.setItem('theme', 'light');
+        // } else {
+        //     // Switch to dark mode
+        //     body.setAttribute('data-theme', 'dark');
+        //     themeIcon.className = 'fas fa-sun';
+        //     localStorage.setItem('theme', 'dark');
+        // }
         if (currentTheme === 'dark') {
             // Switch to light mode
-            body.setAttribute('data-theme', 'light');
+            htmlElement.setAttribute('data-theme', 'light');
             themeIcon.className = 'fas fa-moon';
             localStorage.setItem('theme', 'light');
         } else {
             // Switch to dark mode
-            body.setAttribute('data-theme', 'dark');
+            htmlElement.setAttribute('data-theme', 'dark'); 
             themeIcon.className = 'fas fa-sun';
             localStorage.setItem('theme', 'dark');
         }
@@ -202,6 +227,3 @@ function addNewsItem(date, content) {
     renderNews();
     renderPagination();
 }
-
-// Example of how to add news dynamically:
-// addNewsItem("Jan 2025", "Started new research project on Multimodal AI at Georgia Tech.");
