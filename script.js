@@ -1,12 +1,15 @@
-// News data - you can easily add/remove items here
 const newsData = [
     {
-        date: "Dec 2025",
-        content: "I will be joining <em>Dr. James Hays' Lab</em> as a Graduate Student Researcher"
+        date: "Jan 2026",
+        content: "Our work <em>Analyzing and Optimizing NoSQL Workloads for Cosmos DB using Distressed Resource Volume Metric</em> is accepted at <em>VLDB 2026</em>"
     },
     {
-        date: "Nov 2025",
-        content: "I will be joining the C21U Lab at Georgia Tech as a Graduate Research Assistant under Dr. <em>Jeonghyun (Jonna) Lee</em>"
+        date: "Dec 2025",
+        content: "I have joined <em>Dr. James Hays' Lab</em> as a Graduate Student Researcher, working on Diffusion Models for 3D Scene Reconstruction."
+    },
+    {
+        date: "Dec 2025",
+        content: "I have joined the C21U Lab at Georgia Tech as a Graduate Research Assistant under Dr. <em>Jeonghyun (Jonna) Lee</em>"
     },
     {
         date: "Sep 2025",
