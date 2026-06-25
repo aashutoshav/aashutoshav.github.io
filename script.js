@@ -1,35 +1,51 @@
 const newsData = [
     {
+        date: "May 2026",
+        content: "Started building LLM-powered teaching agents for Socratic Minds, with work on trust calibration, adaptive pedagogical reasoning, and AI-assisted ICAP engagement classification."
+    },
+    {
+        date: "Mar 2026",
+        content: "Started building <em>NVS-Bench</em>, a sparse-view Novel View Synthesis benchmark for diffusion and feedforward models."
+    },
+    {
         date: "Jan 2026",
-        content: "Our work <em>Analyzing and Optimizing NoSQL Workloads for Cosmos DB using Distressed Resource Volume Metric</em> is accepted at <em>VLDB 2026</em>"
+        content: "Our work <em>Analyzing and Optimizing NoSQL Workloads for Cosmos DB</em> was accepted to <em>PVLDB Vol. 19 / VLDB 2026</em>."
     },
     {
         date: "Dec 2025",
-        content: "I have joined <em>Dr. James Hays' Lab</em> as a Graduate Student Researcher, working on Diffusion Models for 3D Scene Reconstruction."
+        content: "Joined <em>Dr. James Hays' Lab</em> as a Graduate Researcher, working on Novel View Synthesis evaluation."
     },
     {
         date: "Dec 2025",
-        content: "I have joined the C21U Lab at Georgia Tech as a Graduate Research Assistant under Dr. <em>Jeonghyun (Jonna) Lee</em>"
+        content: "Joined <em>C21U at Georgia Tech</em> as a Graduate Research Assistant, working on predictive modelling for Undergrad Admissions and Scholarships."
     },
     {
         date: "Sep 2025",
-        content: "Our work <em>Narrating For You</em> is accepted at <em>WACV 2026</em>"
+        content: "Our work <em>Narrating For You</em> was accepted to <em>WACV 2026</em>."
     },
     {
         date: "Aug 2025",
-        content: "Started my MS in Computer Science at Georgia Tech"
-    },
-    {
-        date: "Jun 2025",
-        content: "Graduated from BITS Pilani with Distinction"
+        content: "Started my MS in Computer Science at Georgia Tech."
     },
     {
         date: "Jul 2025",
-        content: "Concluded my research internship at Microsoft Research"
+        content: "Concluded my research internship at <em>Microsoft Research</em>."
+    },
+    {
+        date: "Jul 2025",
+        content: "Co-invented and filed a U.S. patent for workload distribution based on projected error counts."
+    },
+    {
+        date: "Jun 2025",
+        content: "Graduated from BITS Pilani with distinction."
+    },
+    {
+        date: "Jan 2025",
+        content: "Started as a Research Intern at <em>Microsoft Research</em>, working on ML for Azure Cosmos DB workload optimization."
     },
     {
         date: "Dec 2024",
-        content: "Concluded my work for my Undergraduate Thesis on learning representations for Vision-Language Models"
+        content: "Concluded my undergraduate thesis on learning representations for vision-language models."
     },
     {
         date: "May 2024",
@@ -64,7 +80,6 @@ const sortedNewsData = [...newsData].sort((a, b) => {
     return parseDate(b.date) - parseDate(a.date);
 });
 
-// Theme toggle functionality
 // Theme toggle functionality
 document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('theme-toggle');
@@ -121,12 +136,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // News functionality
 function initializeNews() {
+    const newsContainer = document.getElementById('news-container');
+    const paginationContainer = document.getElementById('news-pagination');
+
+    if (!newsContainer || !paginationContainer) {
+        return;
+    }
+
     renderNews();
     renderPagination();
 }
 
 function renderNews() {
     const newsContainer = document.getElementById('news-container');
+    if (!newsContainer) {
+        return;
+    }
+
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const currentNews = sortedNewsData.slice(startIndex, endIndex);
@@ -150,6 +176,10 @@ function renderNews() {
 
 function renderPagination() {
     const paginationContainer = document.getElementById('news-pagination');
+    if (!paginationContainer) {
+        return;
+    }
+
     const totalPages = Math.ceil(sortedNewsData.length / ITEMS_PER_PAGE);
 
     if (totalPages <= 1) {
