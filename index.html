@@ -1,103 +1,202 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aashutosh A V - Portfolio</title>
+    <title>Aashutosh A V</title>
+    <meta name="description"
+        content="Aashutosh A V is an MS Computer Science student at Georgia Tech working on LLM teaching agents, generative view synthesis, and ML for large-scale systems. Previously a Research Intern at Microsoft Research.">
+    <meta name="author" content="Aashutosh A V">
+    <link rel="canonical" href="https://aashutoshav.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aashutosh A V">
+    <meta property="og:description"
+        content="MS CS @ Georgia Tech. LLM teaching agents, novel view synthesis, and ML for large-scale systems. Ex-Microsoft Research.">
+    <meta property="og:url" content="https://aashutoshav.github.io/">
+    <meta property="og:image" content="https://aashutoshav.github.io/profile.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b5bdb'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EAV%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="header" id="header">
         <div class="header-content">
-            <h1 class="site-title">Aashutosh A V</h1>
-            <!-- <nav class="nav">
-                <a href="#research" class="nav-link">Research</a>
-                <a href="#cv" class="nav-link">CV</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon" id="theme-icon"></i>
-                </button>
-            </nav> -->
+            <a class="brand" href="/">
+                <span class="brand-mark">AV</span>
+                <span class="brand-text">Aashutosh A V</span>
+            </a>
             <nav class="nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="research.html" class="nav-link">Research</a>
+                <a href="#publications" class="nav-link">Publications</a>
                 <a href="cv.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">
                     <i class="fas fa-sun" id="theme-icon"></i>
                 </button>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="profile.jpg" alt="Aashutosh A V">
-                </div>
-                <h2 class="profile-name">Aashutosh A V</h2>
-                <p class="profile-title">MSCS Student @ Georgia Tech, GRA @ C21U Lab, Hays Lab</p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Atlanta, GA</span>
-                    </div>
-                    <a class="contact-item" href="mailto:avaashutosh04@gmail.com">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                    <a class="contact-item" href="https://www.linkedin.com/in/aashutosh-av/" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a class="contact-item" href="https://github.com/aashutoshav" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a class="contact-item" href="https://scholar.google.com/citations?user=h1GLSG8hD1MC&hl=en&authuser=1" target="_blank" rel="noopener">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Google Scholar</span>
-                    </a>
-                </div>
-            </div>
-        </aside>
+    <main id="main">
 
-        <!-- Main Content Area -->
-        <section class="content">
-            <h2 class="section-title">About Me</h2>
-            <div class="content-text">
-                <p>Hello, I'm Aashutosh, an MSCS student at Georgia Tech specializing in Machine Learning. I work on applied ML, multimodal intelligence, generative AI, and ML systems, with an emphasis on building models and evaluation frameworks that hold up in real-world settings.</p>
-                
-                <p>At Georgia Tech, I am a Graduate Research Assistant at C21U with Dr. Jeonghyun (Jonna) Lee and Dr. Rod Valente, where I build LLM-powered teaching agents and human-in-the-loop evaluation pipelines. I also work with Dr. James Hays on sparse-view Novel View Synthesis evaluation for diffusion and feedforward models.</p>
-                
-                <p>Previously, I was a Research Intern at Microsoft Research India, where I worked on forecasting, workload modeling, and placement optimization for Azure Cosmos DB. Before that, I graduated with distinction from BITS Pilani with a Bachelor's degree in Computer Science and a minor in Data Science.</p>
-                
-                <p>My research interests lie at the intersection of ML systems, generative modeling, computer vision, and multimodal learning. I have published work in computer vision and generative AI, filed a U.S. patent from my systems research, and continue to explore how AI can support learning, perception, and large-scale infrastructure.</p>
-                
-                <p>In my free time, I enjoy watching tennis, and playing pool.</p>
-                
-                <p>Feel free to reach out if you'd like to discuss ideas, potential collaborations, or research opportunities.</p>
+        <!-- ============ INTRO ============ -->
+        <section class="intro">
+            <div class="container">
+                <div class="intro-head">
+                    <img class="intro-portrait" src="profile.jpg" alt="Aashutosh A V" width="132" height="132">
+                    <div>
+                        <h1 class="name">Aashutosh <em>A V</em></h1>
+                        <p class="role">MS Computer Science, Georgia Tech<br>Graduate Researcher · ex-Microsoft
+                            Research</p>
+                    </div>
+                </div>
+
+                <div class="prose">
+                    <p>I'm an MS Computer Science student at Georgia Tech, specializing in machine learning. My work
+                        sits between generative modeling, multimodal learning and ML systems, and it tends to share
+                        one theme: I care as much about how you <em>measure</em> a model as how you train it.</p>
+
+                    <p>At <strong>C21U</strong> I work with Dr. Jeonghyun (Jonna) Lee and Dr. Rod Valente on
+                        autonomous LLM teaching agents for <a href="http://18.226.85.194:8501" target="_blank"
+                            rel="noopener">Socratic Minds</a>, Georgia Tech's AI tutoring platform. Alongside the
+                        agents, I built the pipeline that codes student dialogue against the ICAP engagement
+                        framework, and the evaluation harness that checks it against human coders.</p>
+
+                    <p>With <strong>Dr. James Hays</strong> I work on sparse-view novel view synthesis — building an
+                        evaluation framework for diffusion and feedforward models on ScanNet++, and probing temporal
+                        self-attention inside a view-synthesis diffusion model to find where its geometry breaks
+                        down.</p>
+
+                    <p>Before Georgia Tech I was a Research Intern at <strong>Microsoft Research India</strong>,
+                        working on workload forecasting and placement optimization for Azure Cosmos DB, which led to
+                        a VLDB paper and a U.S. patent filing. I graduated from <strong>BITS Pilani</strong> with a
+                        CS degree and a minor in Data Science, where my thesis was on representation learning for
+                        vision-language models.</p>
+
+                    <p>I'm currently looking for <strong>ML research and engineering roles</strong>. If you think
+                        there's a fit, or you just want to talk about any of this, please reach out.</p>
+                </div>
+
+                <div class="links">
+                    <a class="link-btn primary" href="cv.pdf" target="_blank" rel="noopener">
+                        <i class="fas fa-file-lines"></i> CV
+                    </a>
+                    <button class="link-btn" id="copy-email" data-email="avaashutosh04@gmail.com">
+                        <i class="fas fa-envelope"></i> <span>avaashutosh04@gmail.com</span>
+                    </button>
+                    <a class="link-btn icon" href="https://github.com/aashutoshav" target="_blank" rel="noopener"
+                        aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a class="link-btn icon" href="https://www.linkedin.com/in/aashutosh-av/" target="_blank"
+                        rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="link-btn icon" href="https://scholar.google.com/citations?user=h1GLSG8hD1MC&hl=en"
+                        target="_blank" rel="noopener" aria-label="Google Scholar"><i
+                            class="fas fa-graduation-cap"></i></a>
+                </div>
             </div>
         </section>
 
-        <!-- Right Sidebar - News Section -->
-        <aside class="news-sidebar">
-            <div class="news-section">
-                <h3 class="news-title">News</h3>
-                <div id="news-container" class="news-container">
-                    <!-- News items will be dynamically loaded here -->
-                </div>
-                <div id="news-pagination" class="news-pagination">
-                    <!-- Pagination controls will be dynamically generated here -->
+        <!-- ============ SELECTED WORK ============ -->
+        <section class="section" id="work">
+            <div class="container">
+                <h2 class="section-title">Selected work</h2>
+                <div class="work-list reveal">
+                    <div class="work-item">
+                        <div>
+                            <div class="work-name">Socratic Minds</div>
+                            <div class="work-where">C21U · Georgia Tech</div>
+                        </div>
+                        <p class="work-desc">Autonomous LLM teaching agents running in Georgia Tech classrooms, with
+                            a retrieval-assisted coder that classifies student engagement from dialogue.
+                            <a href="http://18.226.85.194:8501" target="_blank" rel="noopener">Live&nbsp;↗</a>
+                        </p>
+                    </div>
+                    <div class="work-item">
+                        <div>
+                            <div class="work-name">NVS-Bench</div>
+                            <div class="work-where">Hays Lab · Georgia Tech</div>
+                        </div>
+                        <p class="work-desc">A sparse-view novel view synthesis benchmark on ScanNet++, with a
+                            next-best-view selector that combines a Fisher-information proxy with the diffusion
+                            model's own attention entropy.</p>
+                    </div>
+                    <div class="work-item">
+                        <div>
+                            <div class="work-name">ORBIT · LUNA · LOADSTAR</div>
+                            <div class="work-where">Microsoft Research</div>
+                        </div>
+                        <p class="work-desc">Quantile forecasting of peak load, an online bin-packing placement
+                            algorithm, and a simulator to benchmark placement policies before they reach production.
+                            <a href="cosmosdb.pdf" target="_blank" rel="noopener">Paper&nbsp;↗</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </aside>
+        </section>
+
+        <!-- ============ PUBLICATIONS ============ -->
+        <section class="section" id="publications">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+                <div class="pub-list reveal" id="all-pubs"></div>
+            </div>
+        </section>
+
+        <!-- ============ PATENT ============ -->
+        <section class="section" id="patent">
+            <div class="container">
+                <h2 class="section-title">Patent</h2>
+                <div class="pub-list reveal">
+                    <div class="pub-item">
+                        <div class="pub-venue">USPTO<span class="pub-status">Filed 2025</span></div>
+                        <div>
+                            <h3 class="pub-title">Workload Distribution Based on Projected Error Counts</h3>
+                            <p class="pub-desc">An error-projection scheme that preemptively redistributes NoSQL
+                                workloads using forecasted error counts, to prevent QoS violations across
+                                distributed database clusters. Application 505804-US01.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ NEWS ============ -->
+        <section class="section" id="news">
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                <div class="news-list reveal" id="news-container"></div>
+                <button class="news-toggle" id="news-toggle">show more ↓</button>
+            </div>
+        </section>
     </main>
 
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>© <span id="year"></span> Aashutosh A V · Atlanta, GA</span>
+            <span>
+                <a href="cv.pdf" target="_blank" rel="noopener">CV</a> ·
+                <a href="https://github.com/aashutoshav" target="_blank" rel="noopener">GitHub</a> ·
+                <a href="https://scholar.google.com/citations?user=h1GLSG8hD1MC&hl=en" target="_blank"
+                    rel="noopener">Scholar</a>
+            </span>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

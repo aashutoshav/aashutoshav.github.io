@@ -1,243 +1,162 @@
-const newsData = [
-    {
-        date: "May 2026",
-        content: "Started building LLM-powered teaching agents for Socratic Minds, with work on trust calibration, adaptive pedagogical reasoning, and AI-assisted ICAP engagement classification."
-    },
-    {
-        date: "Mar 2026",
-        content: "Started building <em>NVS-Bench</em>, a sparse-view Novel View Synthesis benchmark for diffusion and feedforward models."
-    },
-    {
-        date: "Jan 2026",
-        content: "Our work <em>Analyzing and Optimizing NoSQL Workloads for Cosmos DB</em> was accepted to <em>PVLDB Vol. 19 / VLDB 2026</em>."
-    },
-    {
-        date: "Dec 2025",
-        content: "Joined <em>Dr. James Hays' Lab</em> as a Graduate Researcher, working on Novel View Synthesis evaluation."
-    },
-    {
-        date: "Dec 2025",
-        content: "Joined <em>C21U at Georgia Tech</em> as a Graduate Research Assistant, working on predictive modelling for Undergrad Admissions and Scholarships."
-    },
-    {
-        date: "Sep 2025",
-        content: "Our work <em>Narrating For You</em> was accepted to <em>WACV 2026</em>."
-    },
-    {
-        date: "Aug 2025",
-        content: "Started my MS in Computer Science at Georgia Tech."
-    },
-    {
-        date: "Jul 2025",
-        content: "Concluded my research internship at <em>Microsoft Research</em>."
-    },
-    {
-        date: "Jul 2025",
-        content: "Co-invented and filed a U.S. patent for workload distribution based on projected error counts."
-    },
-    {
-        date: "Jun 2025",
-        content: "Graduated from BITS Pilani with distinction."
-    },
-    {
-        date: "Jan 2025",
-        content: "Started as a Research Intern at <em>Microsoft Research</em>, working on ML for Azure Cosmos DB workload optimization."
-    },
-    {
-        date: "Dec 2024",
-        content: "Concluded my undergraduate thesis on learning representations for vision-language models."
-    },
-    {
-        date: "May 2024",
-        content: "Our work <em>Latent Flow Diffusion for Deepfake Video Generation</em> was accepted at <em>CVPRW 2024</em>."
-    },
-    {
-        date: "Jun 2023",
-        content: "Started my Undergraduate Research Assistantship at the Machine Intelligence Group"
-    },
-    {
-        date: "Aug 2021",
-        content: "Started my Bachelors in Computer Science at BITS Pilani"
-    },
-];
+/* ============================================================
+   Site behaviour: theme, scroll reveal, news, publications.
+   Depends on data.js being loaded first.
+   ============================================================ */
 
-// Pagination settings
-const ITEMS_PER_PAGE = 3;
-let currentPage = 1;
+(function () {
+    'use strict';
 
-// Function to parse date string and return a sortable date
-function parseDate(dateString) {
-    const [month, year] = dateString.split(' ');
-    const monthMap = {
-        'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
-        'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
-    };
-    return new Date(parseInt(year), monthMap[month]);
-}
+    /* ---------- Theme ---------- */
+    const html = document.documentElement;
 
-// Sort news data by date (latest first)
-const sortedNewsData = [...newsData].sort((a, b) => {
-    return parseDate(b.date) - parseDate(a.date);
-});
-
-// Theme toggle functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-
-    // We target the <html> tag now
-    const htmlElement = document.documentElement;
-
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-
-    // Apply the saved theme on load
-    if (currentTheme === 'dark') {
-        htmlElement.setAttribute('data-theme', 'dark');
-        themeIcon.className = 'fas fa-sun';
-    } else {
-        htmlElement.setAttribute('data-theme', 'light');
-        themeIcon.className = 'fas fa-moon';
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        const icon = document.getElementById('theme-icon');
+        if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
 
-    // Theme toggle event listener
-    themeToggle.addEventListener('click', function () {
-        const currentTheme = htmlElement.getAttribute('data-theme');
+    let stored = 'dark';
+    try {
+        stored = localStorage.getItem('theme') || 'dark';
+    } catch (e) { /* private mode */ }
+    applyTheme(stored);
 
-        if (currentTheme === 'dark') {
-            // Switch to light mode
-            htmlElement.setAttribute('data-theme', 'light'); // FIXED: Changed body -> htmlElement
-            themeIcon.className = 'fas fa-moon';
-            localStorage.setItem('theme', 'light');
-        } else {
-            // Switch to dark mode
-            htmlElement.setAttribute('data-theme', 'dark'); // FIXED: Changed body -> htmlElement
-            themeIcon.className = 'fas fa-sun';
-            localStorage.setItem('theme', 'dark');
+    function initTheme() {
+        applyTheme(html.getAttribute('data-theme') || 'dark');
+        const toggle = document.getElementById('theme-toggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', function () {
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
+        });
+    }
+
+    /* ---------- Sticky header shadow ---------- */
+    function initHeader() {
+        const header = document.getElementById('header');
+        if (!header) return;
+        const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    function initReveal() {
+        const items = document.querySelectorAll('.reveal');
+        if (!items.length) return;
+        if (!('IntersectionObserver' in window)) {
+            items.forEach(el => el.classList.add('in'));
+            return;
         }
-    });
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        items.forEach(el => io.observe(el));
+    }
 
-    // Initialize news section
-    initializeNews();
+    /* ---------- Copy email ---------- */
+    function toast(message) {
+        const el = document.getElementById('toast');
+        if (!el) return;
+        el.textContent = message;
+        el.classList.add('show');
+        clearTimeout(el._t);
+        el._t = setTimeout(() => el.classList.remove('show'), 1800);
+    }
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+    function initCopyEmail() {
+        const btn = document.getElementById('copy-email');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+            const email = btn.dataset.email;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email)
+                    .then(() => toast('Email copied to clipboard'))
+                    .catch(() => { window.location.href = 'mailto:' + email; });
+            } else {
+                window.location.href = 'mailto:' + email;
             }
         });
-    });
-});
-
-// News functionality
-function initializeNews() {
-    const newsContainer = document.getElementById('news-container');
-    const paginationContainer = document.getElementById('news-pagination');
-
-    if (!newsContainer || !paginationContainer) {
-        return;
     }
 
-    renderNews();
-    renderPagination();
-}
+    /* ---------- News ---------- */
+    const MONTHS = {
+        Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+        Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+    };
 
-function renderNews() {
-    const newsContainer = document.getElementById('news-container');
-    if (!newsContainer) {
-        return;
+    function parseDate(str) {
+        const [month, year] = str.split(' ');
+        return new Date(parseInt(year, 10), MONTHS[month] || 0);
     }
 
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    const currentNews = sortedNewsData.slice(startIndex, endIndex);
+    const INITIAL_NEWS = 5;
 
-    newsContainer.innerHTML = '';
+    function initNews() {
+        const container = document.getElementById('news-container');
+        if (!container || typeof newsData === 'undefined') return;
 
-    currentNews.forEach(item => {
-        const newsItem = document.createElement('div');
-        newsItem.className = 'news-item';
+        const sorted = [...newsData].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+        const toggle = document.getElementById('news-toggle');
+        let expanded = false;
 
-        // Convert <italic> tags to proper HTML <em> tags
-        const processedContent = item.content.replace(/<italic>/g, '<em>').replace(/<\/italic>/g, '</em>');
-
-        newsItem.innerHTML = `
-            <div class="news-date">${item.date}</div>
-            <div class="news-content">${processedContent}</div>
-        `;
-        newsContainer.appendChild(newsItem);
-    });
-}
-
-function renderPagination() {
-    const paginationContainer = document.getElementById('news-pagination');
-    if (!paginationContainer) {
-        return;
-    }
-
-    const totalPages = Math.ceil(sortedNewsData.length / ITEMS_PER_PAGE);
-
-    if (totalPages <= 1) {
-        paginationContainer.innerHTML = '';
-        return;
-    }
-
-    paginationContainer.innerHTML = '';
-
-    // Previous button
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'pagination-btn';
-    prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-    prevBtn.disabled = currentPage === 1;
-    prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            renderNews();
-            renderPagination();
+        function render() {
+            const list = expanded ? sorted : sorted.slice(0, INITIAL_NEWS);
+            container.innerHTML = list.map(item => `
+                <div class="news-item">
+                    <div class="news-date">${item.date}</div>
+                    <div class="news-content">${item.content}</div>
+                </div>`).join('');
         }
-    });
-    paginationContainer.appendChild(prevBtn);
 
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-        const pageBtn = document.createElement('button');
-        pageBtn.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
-        pageBtn.textContent = i;
-        pageBtn.addEventListener('click', () => {
-            currentPage = i;
-            renderNews();
-            renderPagination();
-        });
-        paginationContainer.appendChild(pageBtn);
+        render();
+
+        if (toggle) {
+            if (sorted.length <= INITIAL_NEWS) {
+                toggle.style.display = 'none';
+            } else {
+                toggle.addEventListener('click', function () {
+                    expanded = !expanded;
+                    render();
+                    toggle.textContent = expanded ? 'show less \u2191' : 'show more \u2193';
+                });
+            }
+        }
     }
 
-    // Next button
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'pagination-btn';
-    nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-    nextBtn.disabled = currentPage === totalPages;
-    nextBtn.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderNews();
-            renderPagination();
-        }
-    });
-    paginationContainer.appendChild(nextBtn);
-}
+    /* ---------- Publications ---------- */
+    function initPublications() {
+        const list = document.getElementById('all-pubs');
+        if (!list || typeof publications === 'undefined') return;
 
-// Function to add new news items (you can call this to add news dynamically)
-function addNewsItem(date, content) {
-    newsData.unshift({ date, content }); // Add to beginning of array
-    // Re-sort the data after adding new item
-    sortedNewsData.length = 0; // Clear the array
-    sortedNewsData.push(...newsData.sort((a, b) => parseDate(b.date) - parseDate(a.date)));
-    currentPage = 1; // Reset to first page
-    renderNews();
-    renderPagination();
-}
+        list.innerHTML = publications.map(p => `
+            <article class="pub-item">
+                <div class="pub-venue">${p.venue}${p.note ? `<span class="pub-status">${p.note}</span>` : ''}</div>
+                <div>
+                    <h3 class="pub-title">${p.title}</h3>
+                    <p class="pub-desc">${p.desc}</p>
+                    ${p.links.length ? `<div class="pub-links">${p.links.map(l =>
+                        `<a href="${l.href}" target="_blank" rel="noopener">[${l.label}]</a>`).join('')}</div>` : ''}
+                </div>
+            </article>`).join('');
+    }
+
+    /* ---------- Boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+        initTheme();
+        initHeader();
+        initCopyEmail();
+        initNews();
+        initPublications();
+        initReveal();
+
+        const year = document.getElementById('year');
+        if (year) year.textContent = new Date().getFullYear();
+    });
+})();
