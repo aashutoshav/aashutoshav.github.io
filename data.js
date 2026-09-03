@@ -23,7 +23,7 @@ const publications = [
         venue: "PVLDB Vol. 19",
         note: "VLDB 2026",
         desc: "Workload characterization, tail-error prediction and replica placement optimization for Azure Cosmos DB at datacenter scale.",
-        links: [{ label: "paper", href: "cosmosdb.pdf" }]
+        links: [{ label: "paper", href: "https://arxiv.org/pdf/2608.09173" }]
     },
     {
         title: "Narrating For You: Audio-visual Narrating Face Generation",
