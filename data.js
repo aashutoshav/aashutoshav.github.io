@@ -6,8 +6,8 @@
 const publications = [
     {
         title: "Measuring Active Cognition through Uptake in AI-Mediated Socratic Dialogue",
-        venue: "AERA 2027",
-        note: "Under review",
+        venue: "AERA Annual Meeting 2027",
+        note: "",
         desc: "ICAP-based, retrieval-assisted dialogue coding showing that interactive uptake with an AI tutor tracks exchange-level reasoning better than raw behavioral volume.",
         links: []
     },
