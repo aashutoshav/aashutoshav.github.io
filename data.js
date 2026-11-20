@@ -47,24 +47,16 @@ const newsData = [
         content: "Our work <em>Measuring Active Cognition through Uptake in AI-Mediated Socratic Dialogue</em> was accepted to the <em>AERA Annual Meeting 2027</em>."
     },
     {
-        date: "Mar 2026",
-        content: "Started building <em>NVS-Bench</em>, a sparse-view Novel View Synthesis benchmark for diffusion and feedforward models."
-    },
-    {
         date: "Jan 2026",
         content: "Joined <em>C21U at Georgia Tech</em> as a Graduate Research Assistant, building LLM teaching agents for <em>Socratic Minds</em>."
     },
     {
         date: "Jan 2026",
-        content: "Joined <em>Dr. James Hays' Lab</em> as a Graduate Researcher, working on Novel View Synthesis evaluation."
+        content: "Joined <em>Dr. James Hays' Lab</em> as a Graduate Researcher, working on NVS evaluation and uncertainty modelling in 3D vision."
     },
     {
         date: "Jan 2026",
         content: "Our work <em>A Resource-centric Analysis and Optimization of NoSQL Workloads using Distressed Resource Volume Metric</em> was accepted to <em>PVLDB Vol. 19 / VLDB 2026</em>."
-    },
-    {
-        date: "Nov 2025",
-        content: "Released the <em>SCLARO</em> preprint on arXiv."
     },
     {
         date: "Sep 2025",
