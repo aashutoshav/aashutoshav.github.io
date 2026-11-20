@@ -43,8 +43,8 @@ const publications = [
 
 const newsData = [
     {
-        date: "Aug 2026",
-        content: "Submitted <em>Measuring Active Cognition through Uptake in AI-Mediated Socratic Dialogue</em> to <em>AERA 2027</em>."
+        date: "Nov 2026",
+        content: "Our work <em>Measuring Active Cognition through Uptake in AI-Mediated Socratic Dialogue</em> was accepted to the <em>AERA Annual Meeting 2027</em>."
     },
     {
         date: "Mar 2026",
