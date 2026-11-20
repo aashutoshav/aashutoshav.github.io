@@ -13,17 +13,17 @@ const publications = [
     },
     {
         title: "SCLARO: A Dataset for Grounded Scenario-Level Scene Understanding and ScenarioCLIP for Benchmarking",
-        venue: "WACV 2027",
-        note: "Under review",
+        venue: "arXiv",
+        note: "2025",
         desc: "A relation-aware vision-language model with disentangled encoders and EMA-based intra-modal distillation, trained on a curated 1.8M-pair Action-Genome dataset.",
         links: [{ label: "arXiv", href: "https://arxiv.org/abs/2511.20274" }]
     },
     {
-        title: "Analyzing and Optimizing NoSQL Workloads for Cosmos DB",
+        title: "A Resource-centric Analysis and Optimization of NoSQL Workloads using Distressed Resource Volume Metric",
         venue: "PVLDB Vol. 19",
         note: "VLDB 2026",
         desc: "Workload characterization, tail-error prediction and replica placement optimization for Azure Cosmos DB at datacenter scale.",
-        links: [{ label: "paper", href: "https://arxiv.org/pdf/2608.09173" }]
+        links: [{ label: "paper", href: "https://www.vldb.org/pvldb/vol19/p1867-simmhan.pdf" }]
     },
     {
         title: "Narrating For You: Audio-visual Narrating Face Generation",
@@ -60,11 +60,11 @@ const newsData = [
     },
     {
         date: "Jan 2026",
-        content: "Our work <em>Analyzing and Optimizing NoSQL Workloads for Cosmos DB</em> was accepted to <em>PVLDB Vol. 19 / VLDB 2026</em>."
+        content: "Our work <em>A Resource-centric Analysis and Optimization of NoSQL Workloads using Distressed Resource Volume Metric</em> was accepted to <em>PVLDB Vol. 19 / VLDB 2026</em>."
     },
     {
         date: "Nov 2025",
-        content: "Released the <em>SCLARO</em> preprint on arXiv; the paper is under review at <em>WACV 2027</em>."
+        content: "Released the <em>SCLARO</em> preprint on arXiv."
     },
     {
         date: "Sep 2025",
